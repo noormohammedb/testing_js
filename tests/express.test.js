@@ -12,12 +12,26 @@ chai.use(chaiHttp)
 describe("testing express app", () => {
 
    it("GET /", (done) => {
-      console.log("starts requesting");
       chai.request(server)
          .get('/')
          .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a("object")
+            done();
+         })
+   });
+
+   const postData = { message: "Hello World", status: 5325 };
+
+   it("POST /", (done) => {
+      chai.request(server)
+         .post('/')
+         .send(postData)
+         .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a("object")
+            console.log(res.body);
+            res.body.should.have.property("message");
             done();
          })
    });

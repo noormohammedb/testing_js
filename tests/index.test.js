@@ -1,5 +1,5 @@
 const mocha = require("mocha");
-const { expect } = require("chai");
+const { expect, assert } = require("chai");
 const { add, sub, split } = require("../app/index");
 
 describe("Basic testing", () => {
@@ -10,8 +10,9 @@ describe("Basic testing", () => {
    });
 
    it("second test", () => {
-      expect(add(2, 4))
-         .equal(6)
+      const result = add(2, 4);
+      expect(result).equal(6);
+      assert.equal(result, 6);
    });
 
    it("3rd test", () => {

@@ -1,6 +1,7 @@
 const mocha = require("mocha");
-const { expect, assert } = require("chai");
+const { expect, assert, should } = require("chai");
 const { add, sub, split } = require("../app/index");
+should();
 
 describe("Basic testing", () => {
 
@@ -17,8 +18,8 @@ describe("Basic testing", () => {
    });
 
    it("3rd test", () => {
-      expect(split("lorem ipsum"))
-         .to.be.a("object")
+      const result = "add(2, 5);"
+      result.should.be.a('string');
    });
 });
 

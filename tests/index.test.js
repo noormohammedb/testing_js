@@ -5,8 +5,9 @@ const { add, sub, split } = require("../app/index");
 describe("Basic testing", () => {
 
    it("first test", () => {
-      expect(sub(2, 4))
-         .equal(-2)
+      const result = sub(2, 4);
+      expect(result).equal(-2);
+      assert.typeOf(result, "Number")
    });
 
    it("second test", () => {

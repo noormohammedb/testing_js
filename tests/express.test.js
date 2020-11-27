@@ -16,13 +16,14 @@ describe("testing express app", () => {
       chai.request(server)
          .get('/')
          .end((err, res) => {
-            if (!err) {
-               // console.log(res);
-            } else {
-               console.error(err);
-            }
-            done(err);
+            res.should.have.status(200);
+            res.body.should.be.a("object")
+            done();
          })
    });
 
 });
+
+/* Referance
+ * digitalocean.com/community/tutorials/test-a-node-restful-api-with-mocha-and-chai
+**/
